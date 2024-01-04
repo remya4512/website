@@ -1,0 +1,40 @@
+{% extends 'baseone.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="alert alert-danger text-center">REGISTRATION</h1>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+             {% for message in messages %}
+             <h5 style="color: red;">
+                {{message}}
+             </h5>
+             {% endfor %}
+            </div>
+            <div class="col-sm-4"></div>   
+    </div> 
+
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <center>
+                <form method="post" action="{% url 'adduser' %}">
+                    {% csrf_token %}
+                    <input type="text" name="first_name" class="form-control mt-3" placeholder="Enter first name">
+                    <input type="text" name="last_name" class="form-control mt-3" placeholder="Enter last name">
+                    <input type="text" name="username" class="form-control mt-3" placeholder="Enter username">
+                    <input type="email" name="email" class="form-control mt-3" placeholder="Enter email">
+                    <input type="password" name="password" class="form-control mt-3" placeholder="Enter password">
+                    <input type="password" name="cpassword" class="form-control mt-3" placeholder="confirm password">
+                    <br><br>
+                    <button type="submit" class="btn btn-dark">SUBMIT </button><hr>
+                    <h5 style="color: rgb(131, 8, 55);">Already a member  <a href="#">Login here</a></h5>
+                </form>
+            </center>
+            </div>
+<div class="col-sm-3"></div>
+        </div>
+    </div>
+    {% endblock %}

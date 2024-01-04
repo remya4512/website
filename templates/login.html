@@ -1,0 +1,42 @@
+{% extends 'baseone.html' %}
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="alert alert-danger text-center">LOGIN</h1>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <center>
+                <form method="post" action="{% url 'login1' %}">
+                    {% csrf_token %}
+                    <br>
+                    <label><b>Username</b></label>
+                    <input type="text" name="username" class="form-control mt-3" placeholder="Enter username">
+                    <label><b>Password</b></label>
+                    <input type="password" name="password" class="form-control mt-3" placeholder="Enter password">
+                    
+                    <br>
+                    <button type="submit" class="btn btn-dark">Login</button><hr>
+                    
+                </form>
+            </center>
+            </div>
+<div class="col-sm-3"></div>
+        </div>
+    </div>
+
+<!-- alert message -->
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+         {% for message in messages %}
+         <h5 style="color: red;">
+            {{message}}
+         </h5>
+         {% endfor %}
+        </div>
+        <div class="col-sm-4"></div>   
+</div>
+
+{% endblock %}
